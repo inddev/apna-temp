@@ -1,6 +1,6 @@
 import "./App.css";
 import Panchang from "./components/Panchang";
-import Workspace from "./components/searchBook/Workspace";
+import Scriptures from "./components/searchBook/Scriptures";
 import Temple from "./components/Temple";
 import { data } from "./utils/data";
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       {/* <Panchang panchange={data} /> */}
       {/* <Temple /> */}
-      <Workspace />
+      <Scriptures />
     </div>
   );
 }

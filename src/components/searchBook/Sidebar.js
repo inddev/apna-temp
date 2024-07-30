@@ -2,7 +2,7 @@ import React from "react";
 
 const Sidebar = () => {
   return (
-    <div className="w-56 bg-orange-200 rounded-md border border-slate-900 sidebar">
+    <div className="w-56 bg-orange-200 rounded-md sidebar">
       <div className="m-4">
         <h1 className="text-lg font-bold ">Scriptures</h1>
         <ul className="ml-3 mt-2">
