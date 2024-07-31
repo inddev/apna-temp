@@ -1,14 +1,13 @@
 import React from "react";
 
-const Navbar = () => {
+const Main = () => {
   return (
-    <nav className="flex justify-between p-3 relative h-20 bg-gray-50 items-center border shadow-lg">
-      <div className="text-4xl">LOGO</div>
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div>
+      <div className="flex justify-center shadow-md p-3 border-b">
         <input
           type="search"
           placeholder="Search for a book"
-          className="border-2 p-2 mx-2 rounded-md"
+          className="border-2 p-2 mx-2 rounded-md w-96"
         />
         <select name="" id="" className="border-2 p-2 mx-2 rounded-md">
           <option value="">All</option>
@@ -26,9 +25,8 @@ const Navbar = () => {
           Search
         </button>
       </div>
-      <div>menu</div>
-    </nav>
+    </div>
   );
 };
 
-export default Navbar;
+export default Main;

@@ -9,7 +9,7 @@ const Workspace = ({ children }) => {
       <Navbar />
       <div className="flex">
         <Sidebar />
-        <div className="m-5">{children}</div>
+        <div className="main ">{children}</div>
       </div>
     </div>
   );
