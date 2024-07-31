@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
 const Workspace = ({ children }) => {
-  console.log(children);
   return (
     <div>
       <Navbar />

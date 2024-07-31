@@ -4,6 +4,8 @@ import Scriptures from "./components/searchBook/Scriptures";
 import Temple from "./components/Temple";
 import { data } from "./utils/data";
 
+
+
 function App() {
   // console.log(data.tithi);
   return (
