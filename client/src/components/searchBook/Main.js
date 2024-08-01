@@ -1,11 +1,11 @@
 import { scriptureData } from "../../utils/scripturesData";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ScriptureCard from "./ScriptureCard";
 const Main = () => {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
-
   const filteredData = scriptureData.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -13,6 +13,7 @@ const Main = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  console.log(currentItems);
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
@@ -49,17 +50,8 @@ const Main = () => {
       <div className=" mx-auto lg:w-[80%]">
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 justify-items-center gap-3 m-3 p-4 ">
           {currentItems.map((item, index) => (
-            <Link to={`/scripture/${item.name}`}>
-              <div
-                key={index}
-                className="cursor-pointer sm:w-44 sm:h-52 w-full border p-2 rounded-lg overflow-hidden bg-orange-300 hover:bg-orange-500"
-              >
-                <h1 className="text-center font-bold mt-5">{item.name}</h1>
-                <p className="text-center text-sm mt-2">{item.description}</p>
-                <div className="mt-2 text-center font-semibold">
-                  Chapters : {item.chapters}
-                </div>
-              </div>
+            <Link to={`/scripture/${item.name}`} key={item.id}>
+              <ScriptureCard scripture={item} key={item.id} />
             </Link>
           ))}
         </div>
