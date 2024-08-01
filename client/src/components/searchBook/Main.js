@@ -1,31 +1,34 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import VerseCard from "./VerseCard";
+import { scriptureData } from "../../utils/scripturesData";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const Main = () => {
-  const [data, setData] = useState([]);
-  const [selectedChapter, setSelectedChapter] = useState(1);
-  const [selectedVerse, setSelectedVerse] = useState(1);
-  // console.log(selectedChapter);
-  useEffect(() => {
-    fetchData();
-  }, [selectedChapter]);
+  const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      `http://localhost:8000/api/user/verse/${selectedChapter}`
-    );
-    setData(response.data.message);
+  const filteredData = scriptureData.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
-  const selectedVerseData = data.find((verse) => verse.verse === selectedVerse);
-  // console.log("Data", selectedVerseData);
-  const chapters = Array.from({ length: 18 }, (_, i) => i + 1);
+
   return (
-    <div>
+    <div className="">
       <div className="flex justify-center shadow-md p-3 border-b">
         <input
-          type="search"
+          type="text"
           placeholder="Search for a book"
           className="border-2 p-2 mx-2 rounded-md w-96"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <select name="" id="" className="border-2 p-2 mx-2 rounded-md">
           <option value="">All</option>
@@ -43,43 +46,36 @@ const Main = () => {
           Search
         </button>
       </div>
-      <div className=" flex items-center justify-center gap-5 p-4 shadow-lg">
-        <h1 className=" text-xl font-bold">Shrimad Bhagavat Gita</h1>
-        <select
-          value={selectedChapter}
-          onChange={(e) => {
-            setSelectedChapter(parseInt(e.target.value));
-            setSelectedVerse(1);
-          }}
-          className="border p-3 rounded-lg"
-        >
-          {chapters.map((chapter) => (
-            <option key={chapter} value={chapter}>
-              Chapter {chapter}
-            </option>
+      <div className=" mx-auto lg:w-[80%]">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 justify-items-center gap-3 m-3 p-4 ">
+          {currentItems.map((item, index) => (
+            <Link to={`/scripture/${item.name}`}>
+              <div
+                key={index}
+                className="cursor-pointer sm:w-44 sm:h-52 w-full border p-2 rounded-lg overflow-hidden bg-orange-300 hover:bg-orange-500"
+              >
+                <h1 className="text-center font-bold mt-5">{item.name}</h1>
+                <p className="text-center text-sm mt-2">{item.description}</p>
+                <div className="mt-2 text-center font-semibold">
+                  Chapters : {item.chapters}
+                </div>
+              </div>
+            </Link>
           ))}
-        </select>
-        <select
-          value={selectedVerse}
-          onChange={(e) => {
-            setSelectedVerse(parseInt(e.target.value));
-          }}
-           className="border p-3 rounded-lg"
-        >
-          {data.map((verse) => (
-            <option key={verse.verse} value={verse.verse}>
-              Verse {verse.verse}
-            </option>
+        </div>
+        <div className="flex justify-center mt-4 relative bottom-2">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`mx-1 px-3 py-1 border rounded ${
+                page === currentPage ? "bg-orange-500 text-white" : "bg-white"
+              }`}
+            >
+              {page}
+            </button>
           ))}
-        </select>
-      </div>
-      <div className="w-[80%]  mx-auto mt-10 flex justify-center items-baseline">
-        {selectedVerseData && (
-          <VerseCard
-            text={selectedVerseData.text}
-            translations={selectedVerseData.translations}
-          />
-        )}
+        </div>
       </div>
     </div>
   );

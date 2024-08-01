@@ -1,9 +1,9 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
 import Panchang from "./components/Panchang";
+import Navbar from "./components/searchBook/Navbar";
 import Scriptures from "./components/searchBook/Scriptures";
 import Temple from "./components/Temple";
-import { data } from "./utils/data";
-
 
 
 function App() {
@@ -12,7 +12,9 @@ function App() {
     <div className="App">
       {/* <Panchang panchange={data} /> */}
       {/* <Temple /> */}
-      <Scriptures />
+      {/* <Scriptures /> */}
+      <Navbar />
+      <Outlet />
     </div>
   );
 }

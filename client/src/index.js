@@ -5,6 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Panchang from "./components/Panchang";
+import Scriptures from "./components/searchBook/Scriptures";
+import Temple from "./components/Temple";
+import ScriptureDetail from "./components/searchBook/ScriptureDetail";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +18,38 @@ const router = createBrowserRouter([
         path: "/",
         element: <Panchang />,
       },
-      
+      {
+        path: "/yoga-wellness",
+        element: (
+          <div className="text-center text-lg mt-10 font-bold">
+            Yoga and Wellness
+          </div>
+        ),
+      },
+      {
+        path: "/information",
+        element: <Scriptures />,
+      },
+      {
+        path: "/e-commerce",
+        element: (
+          <div className="text-center mt-10 text-lg font-bold">E-commerce</div>
+        ),
+      },
+      {
+        path: "/community",
+        element: (
+          <div className="text-center mt-10 text-lg font-bold">Community</div>
+        ),
+      },
+      {
+        path: "/temples",
+        element: <Temple />,
+      },
+      {
+        path: "/scripture/:scriptureName",
+        element: <ScriptureDetail />,
+      },
     ],
   },
 ]);

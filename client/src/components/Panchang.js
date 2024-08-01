@@ -2,10 +2,11 @@ import React from "react";
 import Card from "./Card";
 import Festivals from "./Festivals";
 import Astroger from "./Astroger";
+import { data } from "../utils/data";
 
-const Panchang = ({ panchange }) => {
-  console.log(panchange);
-  const { name, diety, start, end, special, type } = panchange?.tithi;
+const Panchang = () => {
+  console.log(data);
+  const { name, diety, start, end, special, type } = data?.tithi;
   return (
     <div>
       <div className="lg:grid grid-cols-3 gap-2 items-start">
@@ -52,11 +53,11 @@ const Panchang = ({ panchange }) => {
                       alt="sunrise"
                       className="w-5 mr-1"
                     />
-                    <p>{panchange.advanced_details.sun_rise}</p>
+                    <p>{data.advanced_details.sun_rise}</p>
                   </div>
                   <div className="flex gap-1 items-center justify-start sm:text-xl text-sm text-[#979697]">
                     <img src="/sunset.svg" alt="sunet" className="w-5 mr-1" />
-                    <p>{panchange.advanced_details.sun_set}</p>
+                    <p>{data.advanced_details.sun_set}</p>
                   </div>
                 </div>
               </div>
@@ -71,7 +72,7 @@ const Panchang = ({ panchange }) => {
                       alt="moonrise"
                       className="w-5 mr-1"
                     />
-                    <p>{panchange.advanced_details.moon_rise}</p>
+                    <p>{data.advanced_details.moon_rise}</p>
                   </div>
                   <div className="flex gap-1 items-center justify-start sm:text-xl text-sm text-[#979697]">
                     <img
@@ -79,7 +80,7 @@ const Panchang = ({ panchange }) => {
                       alt="moonset"
                       className="w-5 mr-1"
                     />
-                    <p>{panchange.advanced_details.moon_set}</p>
+                    <p>{data.advanced_details.moon_set}</p>
                   </div>
                 </div>
               </div>
@@ -93,8 +94,8 @@ const Panchang = ({ panchange }) => {
               <div className="bg-[#D4E8B7] rounded-lg p-2 text-center m-1">
                 <h1 className="text-[#069B03]">Abhiji Muhurat</h1>
                 <div className=" font-bold text-sm">
-                  {panchange.advanced_details.abhijit_muhurta.start}-
-                  {panchange.advanced_details.abhijit_muhurta.end}
+                  {data.advanced_details.abhijit_muhurta.start}-
+                  {data.advanced_details.abhijit_muhurta.end}
                 </div>
               </div>
               <div className="bg-[#F4F5D6] rounded-lg p-2 text-center m-1">
@@ -130,9 +131,9 @@ const Panchang = ({ panchange }) => {
               What is This?{" "}
             </div>
           </div>
-          <Card cardData={panchange.nakshatra} />
-          <Card cardData={panchange.karana} />
-          <Card cardData={panchange.yoga} />
+          <Card cardData={data.nakshatra} />
+          <Card cardData={data.karana} />
+          <Card cardData={data.yoga} />
           <div>
             <div className="flex gap-10 p-4 my-3 ">
               <h1 className="text-[#BABABA]">AYANA</h1>

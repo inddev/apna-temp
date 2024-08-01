@@ -49,7 +49,7 @@ const Ratings = () => {
       <div className=" mt-4">
         <h1 className="text-lg font-bold sm:text-2xl">Ratings</h1>
         <div>4.5(100 Reviews)</div>
-        <div className="sm:flex gap-3">
+        <div className="sm:flex gap-3 flex-wrap justify-center">
           {ratings.map((rating) => {
             return <RatingCard key={rating.id} rating={rating} />;
           })}
