@@ -1,25 +1,26 @@
 import Workspace from "./Workspace";
 import VerseCard from "./VerseCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 const ScriptureDetail = () => {
   const [data, setData] = useState([]);
   const [selectedChapter, setSelectedChapter] = useState(1);
   const [selectedVerse, setSelectedVerse] = useState(1);
-  // console.log(selectedChapter);
-  useEffect(() => {
-    fetchData();
-  }, [selectedChapter]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const response = await axios.get(
       `http://64.227.172.85:8000/api/user/verse/${selectedChapter}`
     );
     setData(response.data.message);
-  };
+  }, [selectedChapter]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const selectedVerseData = data.find((verse) => verse.verse === selectedVerse);
-  console.log("Data", selectedVerseData);
+
   const chapters = Array.from({ length: 18 }, (_, i) => i + 1);
   return (
     <Workspace>
