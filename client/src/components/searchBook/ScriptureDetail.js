@@ -8,10 +8,15 @@ const ScriptureDetail = () => {
   const [selectedVerse, setSelectedVerse] = useState(1);
 
   const fetchData = useCallback(async () => {
-    const response = await axios.get(
-      `http://64.227.172.85:8000/api/user/verse/${selectedChapter}`
-    );
-    setData(response.data.message);
+    try {
+      const response = await axios.get(
+        `https://64.227.172.85/api/user/verse/${selectedChapter}`
+      );
+      setData(response.data.message);
+      console.log("response : :: ", response);
+    } catch (error) {
+      console.log(error);
+    }
   }, [selectedChapter]);
 
   useEffect(() => {
