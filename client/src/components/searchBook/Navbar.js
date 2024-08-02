@@ -12,14 +12,14 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between p-3 h-20 bg-gray-50 items-center border shadow-lg relative">
-      <div className="text-3xl font-bold">InDDev</div>
+      <div className="text-3xl font-bold">Apna Sanathan</div>
       <div
         onClick={() => setToggle(false)}
         className={`absolute md:left-1/2 md:top-1/2 md:block ${
           toggle ? "block" : "hidden"
         } bg-orange-300 md:bg-transparent md:w-max w-full top-20 left-0 transition-opacity duration-200 md:-translate-x-1/2 z-10 md:-translate-y-1/2`}
       >
-        <ul className="md:flex md:text-orange-400 text-white p-4 gap-3 md:text-xl items-center font-semibold text-center">
+        <ul className="md:flex md:text-orange-400 text-white  gap-3 md:text-xl items-center font-semibold text-center">
           <Link to={"/"}>
             <li className="cursor-pointer border md:border-none rounded-xl mt-1 py-1">
               Astrology
@@ -27,12 +27,12 @@ const Navbar = () => {
           </Link>
           <Link to={"/yoga-wellness"}>
             <li className="min-w-max cursor-pointer border md:border-none rounded-xl mt-1 py-1">
-              Yoga/wellness
+              Yoga & wellness
             </li>
           </Link>
           <Link to={"/information"}>
             <li className="min-w-max cursor-pointer border md:border-none rounded-xl mt-1 py-1">
-              Information/Media
+              Info & Media
             </li>
           </Link>
           <Link to={"/e-commerce"}>
@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
           <Link to={"/community"}>
             <li className="min-w-max cursor-pointer border md:border-none rounded-xl mt-1 py-1">
-              Events/community
+              Events & community
             </li>
           </Link>
           <Link to={"/temples"}>

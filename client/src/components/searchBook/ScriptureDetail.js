@@ -14,12 +14,12 @@ const ScriptureDetail = () => {
 
   const fetchData = async () => {
     const response = await axios.get(
-      `http://localhost:8000/api/user/verse/${selectedChapter}`
+      `http://64.227.172.85:8000/api/user/verse/${selectedChapter}`
     );
     setData(response.data.message);
   };
   const selectedVerseData = data.find((verse) => verse.verse === selectedVerse);
-  // console.log("Data", selectedVerseData);
+  console.log("Data", selectedVerseData);
   const chapters = Array.from({ length: 18 }, (_, i) => i + 1);
   return (
     <Workspace>
