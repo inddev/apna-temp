@@ -4,7 +4,6 @@ import {
   setCurrentPage,
   setSortBy,
 } from "../../utils/scriptureSlice";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ScriptureCard from "./ScriptureCard";
 const Main = () => {
