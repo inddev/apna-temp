@@ -10,7 +10,7 @@ const ScriptureDetail = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/user/verse/${selectedChapter}`
+        `https://api.apnasanatan.com/api/user/verse/${selectedChapter}`
       );
       setData(response.data.message);
     } catch (error) {
