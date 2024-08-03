@@ -19,7 +19,7 @@ const Navbar = () => {
           toggle ? "block" : "hidden"
         } bg-orange-300 md:bg-transparent md:w-max w-full top-20 left-0 transition-opacity duration-200 md:-translate-x-1/2 z-10 md:-translate-y-1/2`}
       >
-        <ul className="md:flex md:text-orange-400 text-white  gap-3 md:text-xl items-center font-semibold text-center">
+        <ul className="md:flex md:text-orange-400 text-white  gap-3 md:text-lg items-center font-semibold text-center">
           <Link to={"/"}>
             <li className="cursor-pointer border md:border-none rounded-xl mt-1 py-1">
               Astrology

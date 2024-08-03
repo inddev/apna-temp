@@ -10,10 +10,9 @@ const ScriptureDetail = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://64.227.172.85/api/user/verse/${selectedChapter}`
+        `http://localhost:8000/api/user/verse/${selectedChapter}`
       );
       setData(response.data.message);
-      console.log("response : :: ", response);
     } catch (error) {
       console.log(error);
     }

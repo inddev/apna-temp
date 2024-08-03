@@ -5,7 +5,7 @@ import Astroger from "./Astroger";
 import { data } from "../utils/data";
 
 const Panchang = () => {
-  console.log(data);
+  // console.log(data);
   const { name, diety, start, end, special, type } = data?.tithi;
   return (
     <div>
