@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between p-3 h-20 bg-gray-50 items-center border shadow-lg relative">
-      <div className="text-3xl font-bold">Apna Sanathan</div>
+      <div className="text-3xl font-bold">Apna Sanatan</div>
       <div
         onClick={() => setToggle(false)}
         className={`absolute md:left-1/2 md:top-1/2 md:block ${
