@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Festivals from "./Festivals";
 import Astroger from "./Astroger";
-import { data } from "../utils/data";
+import { data } from "../../utils/data";
 
 const Panchang = () => {
   // console.log(data);

@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Panchang from "./components/Panchang";
+import Panchang from "./components/Astrology/Panchang";
 import Scriptures from "./components/searchBook/Scriptures";
-import Temple from "./components/Temple";
+import Temple from "./components/Temples/Temple";
 import ScriptureDetail from "./components/searchBook/ScriptureDetail";
 
 const router = createBrowserRouter([

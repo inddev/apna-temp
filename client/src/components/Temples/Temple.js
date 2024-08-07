@@ -13,7 +13,7 @@ const Temple = () => {
       <TempleDetails />
       <hr className="mx-5" />
       <div className="m-5">
-        <h1 className="text-xl font-bold">Visiting Hourse</h1>
+        <h1 className="text-xl font-bold">Visiting Hours</h1>
         <div>
           <button className="flex items-center m-2 gap-2 py-2 px-4 border-2 rounded-2xl">
             <img src="/time.svg" alt="time" />
