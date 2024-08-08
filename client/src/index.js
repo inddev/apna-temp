@@ -8,7 +8,12 @@ import Panchang from "./components/Astrology/Panchang";
 import Scriptures from "./components/searchBook/Scriptures";
 import Temple from "./components/Temples/Temple";
 import ScriptureDetail from "./components/searchBook/ScriptureDetail";
-
+import Login from "./components/Auth/Login";
+import SignUp from "./components/Auth/SignUp";
+import ForgotPassword from "./components/Auth/ForgotPassword";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Profile from "./components/Auth/Profile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,12 +55,32 @@ const router = createBrowserRouter([
         path: "/scripture/:scriptureName",
         element: <ScriptureDetail />,
       },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <SignUp />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router}></RouterProvider>);
+root.render(
+  <Provider store={store}>
+    <RouterProvider router={router}></RouterProvider>
+  </Provider>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
