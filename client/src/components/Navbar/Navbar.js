@@ -18,10 +18,12 @@ const Navbar = () => {
   };
 
   const handleLogin = async () => {
-    loginWithRedirect();
+    const fetchedUser = await loginWithRedirect();
+    console.log(fetchedUser);
     setShowPopup(false);
+    console.log("user and isAuthenticated", user, isAuthenticated);
     try {
-      if (user && isAuthenticated) {
+      if (user) {
         const response = await axios.post(
           "https://api.apnasanatan.com/api/user",
           user
@@ -32,7 +34,7 @@ const Navbar = () => {
       console.log(error);
     }
   };
-  console.log("isAuthenticated::", isAuthenticated);
+  // console.log("isAuthenticated::", isAuthenticated);
   return (
     <nav className="flex justify-between p-3 h-20 bg-gray-50 items-center border shadow-lg relative">
       <div className="md:text-3xl text-lg font-bold">Apna Sanatan</div>
