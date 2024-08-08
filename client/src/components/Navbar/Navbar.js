@@ -2,21 +2,37 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import { useSelector } from "react-redux";
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 const Navbar = () => {
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [toggle, setToggle] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
   const [showPopup, setShowPopup] = useState(false);
   const handleToggle = () => {
     setToggle(!toggle);
   };
-
+  console.log("user", user);
   const handleUserClick = () => {
     setShowPopup(!showPopup);
   };
 
+  const handleLogin = async () => {
+    loginWithRedirect();
+    setShowPopup(false);
+    try {
+      if (user && isAuthenticated) {
+        const response = await axios.post(
+          "https://api.apnasanatan.com/api/user",
+          user
+        );
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log("isAuthenticated::", isAuthenticated);
   return (
     <nav className="flex justify-between p-3 h-20 bg-gray-50 items-center border shadow-lg relative">
       <div className="md:text-3xl text-lg font-bold">Apna Sanatan</div>
@@ -72,7 +88,7 @@ const Navbar = () => {
         />
         {showPopup && (
           <div className="absolute right-2 top-16 mt-2 w-48 bg-white shadow-lg rounded-lg">
-            {isLoggedIn ? (
+            {isAuthenticated && user && (
               <ul className="py-2">
                 <Link to={"/profile"}>
                   <li
@@ -86,35 +102,22 @@ const Navbar = () => {
                 </Link>
                 <Link to={"/login"}>
                   <li
-                    onClick={() => {
-                      setIsLoggedIn(false);
-                      setShowPopup(false);
-                      alert("Logged out"); // Replace with actual logout logic
-                    }}
+                    onClick={() => logout()}
                     className="px-4 py-2 cursor-pointer hover:bg-gray-200"
                   >
                     Logout
                   </li>
                 </Link>
               </ul>
-            ) : (
+            )}
+            {!isAuthenticated && (
               <ul className="py-2">
-                <Link to="/login">
-                  <li
-                    onClick={() => setShowPopup(false)}
-                    className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                  >
-                    Login
-                  </li>
-                </Link>
-                <Link to="/register">
-                  <li
-                    onClick={() => setShowPopup(false)}
-                    className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                  >
-                    Signup
-                  </li>
-                </Link>
+                <li
+                  onClick={handleLogin}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                >
+                  Login
+                </li>
               </ul>
             )}
           </div>

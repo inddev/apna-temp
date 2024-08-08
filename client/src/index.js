@@ -13,6 +13,7 @@ import SignUp from "./components/Auth/SignUp";
 import ForgotPassword from "./components/Auth/ForgotPassword";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import { Auth0Provider } from "@auth0/auth0-react";
 import Profile from "./components/Auth/Profile";
 const router = createBrowserRouter([
   {
@@ -75,11 +76,22 @@ const router = createBrowserRouter([
   },
 ]);
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+console.log(domain, clientId);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
-    <RouterProvider router={router}></RouterProvider>
-  </Provider>
+  <Auth0Provider
+    domain={domain}
+    clientId={clientId}
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
