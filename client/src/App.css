@@ -1,0 +1,19 @@
+* {
+  font-family: gilroy;
+}
+.sidebar {
+  height: calc(100vh - 80px);
+}
+
+.main {
+  height: calc(100vh - 80px);
+  overflow: scroll;
+}
+
+@media (min-width: 640px) {
+  .main {
+    width: calc(100vw - 224px);
+    height: calc(100vh - 80px);
+    overflow: scroll;
+  }
+}
