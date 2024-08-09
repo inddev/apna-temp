@@ -1,4 +1,4 @@
-exports.scriptureData = [
+export const scriptureData = [
   {
     id: 1,
     name: "Rigveda",
