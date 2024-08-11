@@ -5,7 +5,7 @@ export const scriptureData = [
     description:
       "The oldest of the Vedas, containing hymns to be recited by the hotar.",
     chapters: 10,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Vedas",
   },
   {
@@ -13,7 +13,7 @@ export const scriptureData = [
     name: "Samaveda",
     description: "The Veda of melodies and chants.",
     chapters: 75,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Vedas",
   },
   {
@@ -21,7 +21,7 @@ export const scriptureData = [
     name: "Yajurveda",
     description: "The Veda of ritual formulas.",
     chapters: 40,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Vedas",
   },
   {
@@ -29,7 +29,7 @@ export const scriptureData = [
     name: "Atharvaveda",
     description: "The Veda of magical formulas.",
     chapters: 20,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Vedas",
   },
   {
@@ -38,7 +38,7 @@ export const scriptureData = [
     description:
       "One of the shortest Upanishads, discussing the nature of reality.",
     chapters: 1,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Upanishads",
   },
   {
@@ -46,7 +46,7 @@ export const scriptureData = [
     name: "Kena Upanishad",
     description: "Explores the nature of knowledge and the self.",
     chapters: 4,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Upanishads",
   },
   {
@@ -55,7 +55,7 @@ export const scriptureData = [
     description:
       "A dialogue between Nachiketa and Yama, discussing life and death.",
     chapters: 2,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Upanishads",
   },
   {
@@ -63,7 +63,7 @@ export const scriptureData = [
     name: "Mandukya Upanishad",
     description: "Focuses on the syllable Aum and its philosophical meaning.",
     chapters: 1,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Upanishads",
   },
   {
@@ -71,7 +71,7 @@ export const scriptureData = [
     name: "Bhagavata Purana",
     description: "A key text in the Bhakti tradition.",
     chapters: 12,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -80,7 +80,7 @@ export const scriptureData = [
     description:
       "One of the eighteen Mahapuranas, it is a key text for Vaishnavism.",
     chapters: 6,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -88,7 +88,7 @@ export const scriptureData = [
     name: "Shiva Purana",
     description: "One of the eighteen Mahapuranas, it is dedicated to Shiva.",
     chapters: 7,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -97,7 +97,7 @@ export const scriptureData = [
     description:
       "One of the eighteen Mahapuranas, it discusses religion and art.",
     chapters: 5,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -105,7 +105,7 @@ export const scriptureData = [
     name: "Valmiki Ramayana",
     description: "The original epic written by Sage Valmiki.",
     chapters: 7,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Ramayana",
   },
   {
@@ -113,7 +113,7 @@ export const scriptureData = [
     name: "Ramcharitmanas",
     description: "A retelling of the Ramayana in Awadhi by Tulsidas.",
     chapters: 7,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Ramayana",
   },
   {
@@ -122,7 +122,7 @@ export const scriptureData = [
     description:
       "The epic narrative of the Kurukshetra war and the fates of the Kaurava and the Pandava princes.",
     chapters: 18,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Mahabharata",
   },
   {
@@ -131,7 +131,7 @@ export const scriptureData = [
     description:
       "A 700-verse Hindu scripture that is part of the Mahabharata, a conversation between prince Arjuna and the god Krishna.",
     chapters: 18,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Mahabharata",
   },
   {
@@ -139,7 +139,7 @@ export const scriptureData = [
     name: "Brahma Purana",
     description: "One of the eighteen Mahapuranas, named after Brahma.",
     chapters: 246,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -148,7 +148,7 @@ export const scriptureData = [
     description:
       "One of the eighteen Mahapuranas, containing the Devi Mahatmya.",
     chapters: 137,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -157,7 +157,7 @@ export const scriptureData = [
     description:
       "One of the eighteen Mahapuranas, contains details of heaven and hell.",
     chapters: 248,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Puranas",
   },
   {
@@ -165,7 +165,7 @@ export const scriptureData = [
     name: "Narayana Upanishad",
     description: "Discusses the Supreme Being Narayana.",
     chapters: 1,
-    thumbnail: "",
+    thumbnail: "/book.png",
     category: "Upanishads",
   },
 ];

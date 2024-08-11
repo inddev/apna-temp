@@ -27,17 +27,12 @@ const Main = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-  // console.log(currentItems);
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  // const handlePageChange = (pageNumber) => {
-  //   setCurrentPage(pageNumber);
-  // };
-
   return (
     <div className="">
-      <div className="flex justify-center shadow-md p-3 border-b">
+      <div className="flex justify-center p-3 border-b">
         <input
           type="text"
           placeholder="Search for a book"
@@ -46,8 +41,6 @@ const Main = () => {
           onChange={(e) => dispatch(setSearch(e.target.value))}
         />
         <select
-          name=""
-          id=""
           value={sortBy}
           onChange={(e) => dispatch(setSortBy(e.target.value))}
           className="border-2 p-2 mx-2 rounded-md"
@@ -57,10 +50,14 @@ const Main = () => {
           <option value="name_desc">Sort by name desc</option>
         </select>
       </div>
-      <div className=" mx-auto lg:w-[80%]">
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 justify-items-center gap-3 m-3 p-4 ">
+      <div className=" mx-auto lg:w-[90%]">
+        <div className="grid lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-3 md:grid-cols-3 sm:grid-rows-4 sm:grid-cols-2 grid-cols-3 grid-rows-3 justify-items-center gap-3 m-3 p-4 ">
           {currentItems.map((item, index) => (
-            <Link to={`/scripture/${item.name}`} key={item.id}>
+            <Link
+              to={`/scripture/${item.name}`}
+              className="h-full shadow-md w-full border p-3 rounded-lg overflow-hidden bg-orange-300 hover:bg-orange-500"
+              key={item.id}
+            >
               <ScriptureCard scripture={item} key={item.id} />
             </Link>
           ))}

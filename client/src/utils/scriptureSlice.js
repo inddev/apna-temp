@@ -16,12 +16,14 @@ const scriptureSlice = createSlice({
   reducers: {
     setSearch(state, action) {
       state.search = action.payload;
+      state.currentPage = 1;
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
     setSelectedCategory(state, action) {
       state.selectedCategory = action.payload;
+      state.currentPage = 1;
     },
     setSortBy(state, action) {
       state.sortBy = action.payload;
