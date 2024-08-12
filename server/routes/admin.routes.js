@@ -9,7 +9,7 @@ import {
 import {
   storeBhagvadGita,
   storeMahabharata,
-  storeRamayan,
+  storeRamcharitmanas,
 } from "../controllers/manuscripts.controller.js";
 
 const adminRouter = Router();
@@ -21,7 +21,7 @@ adminRouter.route("/panchangDB").get(getPanchangFromDB);
 
 // adminRouter.route("/storeBhagvadGita").post(storeBhagvadGita);
 // adminRouter.route("/storeMahabharata").post(storeMahabharata);
-// adminRouter.route("/storeRamayan").post(storeRamayan);
+// adminRouter.route("/store-ramcharitmanas").post(storeRamcharitmanas);
 
 adminRouter.route("/yogaAPI").get(getYogaFromAPI);
 

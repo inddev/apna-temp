@@ -5,8 +5,8 @@ import { ApiResponse } from "../utils/apiResponse.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { Ramayan } from "../models/ramayan.model.js";
 import { Mahabharata } from "../models/mahabharata.model.js";
+import { Ramcharitmanas } from "../models/ramcharitmanas.model.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,14 +38,14 @@ const storeBhagvadGita = async () => {
   console.log("Bhagvad Gita stored successfully");
 };
 
-const storeRamayan = async () => {
-  const totalFiles = 7; // Adjust based on the number of JSON files you have
+const storeRamcharitmanas = async () => {
+  const totalFiles = 7;
   const promises = [];
 
   for (let fileIndex = 1; fileIndex <= totalFiles; fileIndex++) {
     const filePath = path.resolve(
       __dirname,
-      `../../public/Ramayan/ramayan_part_${fileIndex}.json`
+      `../../public/Ramcharitmanas/ramcharitmanas_part_${fileIndex}.json`
     );
     let fileData;
 
@@ -67,7 +67,7 @@ const storeRamayan = async () => {
           typeof item.kaand === "string"
         ) {
           try {
-            await Ramayan.create({
+            await Ramcharitmanas.create({
               type: item.type,
               content: item.content,
               kaand: item.kaand,
@@ -95,23 +95,25 @@ const storeRamayan = async () => {
 
   try {
     await Promise.all(promises);
-    console.log("Ramayan stored successfully");
+    console.log("Ramcharitmanas stored successfully");
   } catch (error) {
-    console.error("Error storing Ramayan data:", error);
+    console.error("Error storing Ramcharitmanas data:", error);
   }
 };
-const getRamayan = asyncHandler(async (req, res) => {
+const getRamcharitmanas = asyncHandler(async (req, res) => {
   try {
     const { kaand } = req.body;
-    const ramayan = await Ramayan.find({ kaand: kaand });
+    const ramcharitmanas = await Ramcharitmanas.find({ kaand: kaand });
     res.status(200).send({
       success: true,
-      data: ramayan,
+      data: ramcharitmanas,
     });
   } catch (error) {
-    return res
-      .status(500)
-      .send({ success: false, message: "Error fetching Ramayan", error });
+    return res.status(500).send({
+      success: false,
+      message: "Error fetching Ramcharitmanas",
+      error,
+    });
   }
 });
 
@@ -220,8 +222,8 @@ const getMahabharata = asyncHandler(async (req, res) => {
 export {
   storeBhagvadGita,
   getVerse,
-  storeRamayan,
-  getRamayan,
+  storeRamcharitmanas,
+  getRamcharitmanas,
   storeMahabharata,
   getMahabharata,
 };

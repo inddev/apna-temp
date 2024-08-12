@@ -51,10 +51,10 @@ const Main = () => {
         </select>
       </div>
       <div className=" mx-auto lg:w-[90%]">
-        <div className="grid lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-3 md:grid-cols-3 sm:grid-rows-4 sm:grid-cols-2 grid-cols-3 grid-rows-3 justify-items-center gap-3 m-3 p-4 ">
+        <div className="grid lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-3 md:grid-cols-3 sm:grid-rows-4 sm:grid-cols-2 grid-cols-3 grid-rows-3 justify-items-center sm:gap-3 sm:m-3 p-4 ">
           {currentItems.map((item, index) => (
             <Link
-              to={`/scripture/${item.name}`}
+              to={`/scripture/${item.id}`}
               className="h-full shadow-md w-full border p-3 rounded-lg overflow-hidden bg-orange-300 hover:bg-orange-500"
               key={item.id}
             >

@@ -25,7 +25,6 @@ const Navbar = () => {
     const sendUserToServer = async () => {
       if (isAuthenticated && user) {
         try {
-          console.log(user);
           const response = await axios.post(
             "https://api.apnasanatan.com/api/user",
             {

@@ -7,7 +7,7 @@ import {
 } from "../controllers/user.controller.js";
 import {
   getMahabharata,
-  getRamayan,
+  getRamcharitmanas,
   getVerse,
 } from "../controllers/manuscripts.controller.js";
 
@@ -15,8 +15,8 @@ const userRouter = Router();
 
 userRouter.route("/").post(handleAuth0Callback);
 userRouter.route("/prediction").post(getPrediction);
-userRouter.route("/verse/:chapter").get(getVerse);
-userRouter.route("/ramayan").get(getRamayan);
+userRouter.route("/bhagavad-gita/:chapter").get(getVerse);
+userRouter.route("/ramcharitmanas").get(getRamcharitmanas);
 userRouter.route("/mahabharata").get(getMahabharata);
 userRouter.route("/panchang").post(getPanchang);
 userRouter.route("/createSession").post(createSession);

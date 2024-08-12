@@ -1,5 +1,11 @@
 import { Router } from "express";
-import { getAllTemples, getTempleById, getTemplesByName, createTemple, updateTemple } from "../controllers/temple.controller.js";
+import {
+  getAllTemples,
+  getTempleById,
+  getTemplesByName,
+  createTemple,
+  updateTemple,
+} from "../controllers/temple.controller.js";
 
 const templeRouter = Router();
 
