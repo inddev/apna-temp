@@ -31,7 +31,7 @@ const Navbar = () => {
               user: user,
             }
           );
-          console.log(response.data);
+          alert(response.data.message);
         } catch (error) {
           console.log(error);
         }

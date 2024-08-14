@@ -4,7 +4,7 @@ export const scriptureData = [
     name: "Ramcharitmanas",
     description: "A retelling of the Ramayana in Awadhi by Tulsidas.",
     chapters: 7,
-    thumbnail: "/thumbnails/thumb-ramcharitmanas.jpg",
+    thumbnail: "/thumbnails/thumb-ramcharitmanas.webp",
     category: "Ramayana",
   },
   {

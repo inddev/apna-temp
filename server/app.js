@@ -1,21 +1,22 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import status from "express-status-monitor";
 const app = express();
 
-app.use(express.json());
-app.use(status());
-app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: ["http://localhost:5173"],
     credentials: true,
+    methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
+  console.log(req.body);
   res.send("Apna Sanatan Server is running!");
 });
 

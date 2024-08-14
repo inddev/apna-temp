@@ -10,7 +10,7 @@ const ScriptureDetail = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://api.apnasanatan.com/api/user/verse/${selectedChapter}`
+        `http://localhost:8000/api/user/verse/${selectedChapter}`
       );
       setData(response.data.message);
     } catch (error) {
@@ -25,6 +25,7 @@ const ScriptureDetail = () => {
   const selectedVerseData = data.find((verse) => verse.verse === selectedVerse);
 
   const chapters = Array.from({ length: 18 }, (_, i) => i + 1);
+
   return (
     <div>
       <div className=" flex items-center justify-center gap-5 p-4 shadow-lg">

@@ -10,6 +10,8 @@ import Scriptures from "./components/searchBook/Scriptures.jsx";
 import Temple from "./components/Temples/Temple.jsx";
 import ScriptureDetail from "./components/searchBook/ScriptureDetail";
 import Profile from "./components/Profile.jsx";
+import RamCharitManas from "./components/searchBook/RamCharitManas.jsx";
+import Mahabharata from "./components/searchBook/Mahabharata.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,15 @@ const router = createBrowserRouter([
         element: <Temple />,
       },
       {
-        path: "/scripture/:scriptureName",
+        path: "/scripture/1",
+        element: <RamCharitManas />,
+      },
+      {
+        path: "/scripture/2",
+        element: <Mahabharata />,
+      },
+      {
+        path: "/scripture/3",
         element: <ScriptureDetail />,
       },
       {

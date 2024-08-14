@@ -57,7 +57,6 @@ const storeRamcharitmanas = async () => {
       continue;
     }
 
-    // Check if the data is an array
     if (Array.isArray(fileData)) {
       const filePromises = fileData.map(async (item, index) => {
         if (
@@ -102,7 +101,7 @@ const storeRamcharitmanas = async () => {
 };
 const getRamcharitmanas = asyncHandler(async (req, res) => {
   try {
-    const { kaand } = req.body;
+    const { kaand } = req.params;
     const ramcharitmanas = await Ramcharitmanas.find({ kaand: kaand });
     res.status(200).send({
       success: true,
@@ -205,9 +204,10 @@ const storeMahabharata = async () => {
   }
 };
 
-const getMahabharata = asyncHandler(async (req, res) => {
+const getMahabharata = async (req, res) => {
   try {
-    const mahabharata = await Mahabharata.find();
+    const { book } = req.params;
+    const mahabharata = await Mahabharata.find({ book: book });
     res.status(200).send({
       success: true,
       data: mahabharata,
@@ -217,7 +217,7 @@ const getMahabharata = asyncHandler(async (req, res) => {
       .status(500)
       .send({ success: false, message: "Error fetching mahabharata", error });
   }
-});
+};
 
 export {
   storeBhagvadGita,
