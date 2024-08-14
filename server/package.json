@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@elastic/elasticsearch": "^8.15.0",
     "agora-access-token": "^2.0.4",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",

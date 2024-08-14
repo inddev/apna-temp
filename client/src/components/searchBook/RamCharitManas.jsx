@@ -22,7 +22,7 @@ const RamCharitManas = () => {
     fetchRamacharitmanas();
   }, [selectedKaand]);
   const selectedTypeData = data.filter((item) => item.type === selectedType);
-  console.log(selectedTypeData);
+  // console.log(selectedTypeData);
 
   if (selectedTypeData.length <= 0) {
     return <div className="text-center text-xl mt-10">Loading...</div>;
