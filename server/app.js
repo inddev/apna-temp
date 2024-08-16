@@ -7,8 +7,8 @@ import { Client } from "@elastic/elasticsearch";
 const esClient = new Client({
   node: "http://localhost:9200",
   auth: {
-    username: "elastic",
-    password: "RMjJ1urn1vakeICnX*KH",
+    username: process.env.ELASTIC_SEARCH_USERNAME,
+    password: process.env.ELASTIC_SEARCH_PASSWORD,
   },
   requestTimeout: 60000,
 });
@@ -17,7 +17,6 @@ app.use(
   cors({
     origin: ["http://localhost:5173"],
     credentials: true,
-    methods: ["GET", "POST", "DELETE", "PUT"],
   })
 );
 app.use(express.json());
@@ -37,7 +36,6 @@ app.get("/search", async (req, res) => {
         },
       },
     });
-    // console.log("res", response.hits.hits);
     res.status(200).send(response.hits.hits);
   } catch (error) {
     res.status(500).send(error.message);

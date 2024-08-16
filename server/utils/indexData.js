@@ -4,8 +4,8 @@ import { Mahabharata } from "../models/mahabharata.model.js";
 const esClient = new Client({
   node: "http://localhost:9200",
   auth: {
-    username: "elastic",
-    password: "RMjJ1urn1vakeICnX*KH",
+    username: process.env.ELASTIC_SEARCH_USERNAME,
+    password: process.env.ELASTIC_SEARCH_PASSWORD,
   },
   requestTimeout: 60000,
 });

@@ -5,7 +5,7 @@ import axios from "axios";
 const Workspace = ({ children }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  // console.log(results);
+
   const handleSearch = async () => {
     try {
       const response = await axios.get("http://localhost:8000/search", {
