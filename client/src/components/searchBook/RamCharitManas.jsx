@@ -61,7 +61,7 @@ const RamCharitManas = () => {
             key={index}
             className="p-4 border shadow-sm mb-4 mx-auto mt-2 rounded-md bg-orange-200"
           >
-            <h2 className="text-lg font-bold ">
+            <h2 className="md:text-lg text-sm font-bold ">
               <span>{index + 1}.</span>
               {item.content}
             </h2>

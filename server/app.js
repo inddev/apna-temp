@@ -2,6 +2,16 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 const app = express();
+import { Client } from "@elastic/elasticsearch";
+
+const esClient = new Client({
+  node: "http://localhost:9200",
+  auth: {
+    username: "elastic",
+    password: "RMjJ1urn1vakeICnX*KH",
+  },
+  requestTimeout: 60000,
+});
 
 app.use(
   cors({
@@ -14,6 +24,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
+
+app.get("/search", async (req, res) => {
+  const { query } = req.query;
+  try {
+    console.log("Query", query);
+    const response = await esClient.search({
+      index: "mahabharata",
+      body: {
+        query: {
+          match: { text: query },
+        },
+      },
+    });
+    // console.log("res", response.hits.hits);
+    res.status(200).send(response.hits.hits);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 app.get("/", (req, res) => {
   console.log(req.body);
