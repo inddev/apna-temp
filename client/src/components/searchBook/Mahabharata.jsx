@@ -6,7 +6,9 @@ const Mahabharata = () => {
     axios
       .get("http://localhost:8000/api/user/mahabharata/1")
       .then((data) => {
-        console.log(data.data);
+        if (data.data.success) {
+          alert("data retrieved Successfully");
+        }
       })
       .catch((err) => {
         console.log(err);

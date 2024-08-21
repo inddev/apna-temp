@@ -12,6 +12,7 @@ import ScriptureDetail from "./components/searchBook/ScriptureDetail";
 import Profile from "./components/Profile.jsx";
 import RamCharitManas from "./components/searchBook/RamCharitManas.jsx";
 import Mahabharata from "./components/searchBook/Mahabharata.jsx";
+import AgoraRTC, { AgoraRTCProvider } from "agora-rtc-react";
 
 const router = createBrowserRouter([
   {
@@ -73,16 +74,20 @@ const router = createBrowserRouter([
 const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
+const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+
 createRoot(document.getElementById("root")).render(
-  <Auth0Provider
-    domain={domain}
-    clientId={clientId}
-    authorizationParams={{
-      redirect_uri: window.location.origin,
-    }}
-  >
-    <Provider store={store}>
-      <RouterProvider router={router}></RouterProvider>
-    </Provider>
-  </Auth0Provider>
+  <AgoraRTCProvider client={client}>
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <Provider store={store}>
+        <RouterProvider router={router}></RouterProvider>
+      </Provider>
+    </Auth0Provider>
+  </AgoraRTCProvider>
 );
