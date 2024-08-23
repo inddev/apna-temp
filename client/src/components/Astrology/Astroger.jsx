@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Astroger = () => {
   return (
@@ -6,44 +7,49 @@ const Astroger = () => {
       <div className="p-5 ">
         <h1 className=" text-2xl font-bold mb-3">Contact Astrologer</h1>
         <div className="sm:flex gap-4 overflow-hidden ">
-          <div className="flex gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 mb-3 rounded-2xl">
+          <div className="flex gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 rounded-2xl">
             <img src="/astrologer.png" alt="astrologer" />
             <div className=" flex justify-between w-[80%] items-center">
               <div>
                 <h1>Title</h1>
                 <p>Subtitle</p>
               </div>
-              <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
-                Call
-              </button>
+              <Link to={"/connect-astrologer"}>
+                <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
+                  Call
+                </button>
+              </Link>
             </div>
           </div>
-          <div className="flex  gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 mb-3 rounded-2xl">
+          <div className="flex  gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 rounded-2xl">
             <img src="/astrologer.png" alt="astrologer" />
             <div className=" flex justify-between w-[80%] items-center">
               <div>
                 <h1>Title</h1>
                 <p>Subtitle</p>
               </div>
-              <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
-                Call
-              </button>
-            </div>
-          </div>
-
-          <div className="flex gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 mb-3 rounded-2xl">
-            <img src="/astrologer.png" alt="astrologer" />
-            <div className=" flex justify-between w-[80%] items-center">
-              <div>
-                <h1>Title</h1>
-                <p>Subtitle</p>
-              </div>
-              <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
-                Call
-              </button>
+              <Link to={"/connect-astrologer"}>
+                <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
+                  Call
+                </button>
+              </Link>
             </div>
           </div>
 
+          <div className="flex gap-4 items-center sm:p-3 p-2 justify-between border shadow-md sm:w-80 rounded-2xl">
+            <img src="/astrologer.png" alt="astrologer" />
+            <div className=" flex justify-between w-[80%] items-center">
+              <div>
+                <h1>Title</h1>
+                <p>Subtitle</p>
+              </div>
+              <Link to={"/connect-astrologer"}>
+                <button className="cursor-pointer bg-slate-300 text-orange-400 px-5 py-2 rounded-3xl">
+                  Call
+                </button>
+              </Link>
+            </div>
+          </div>
           <div className=" bg-orange-400 flex justify-center items-center p-2 rounded-xl">
             View all
           </div>

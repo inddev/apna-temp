@@ -13,6 +13,7 @@ import Profile from "./components/Profile.jsx";
 import RamCharitManas from "./components/searchBook/RamCharitManas.jsx";
 import Mahabharata from "./components/searchBook/Mahabharata.jsx";
 import AgoraRTC, { AgoraRTCProvider } from "agora-rtc-react";
+import ConnectAstrologer from "./components/Astrology/ConnectAstrologer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path: "/connect-astrologer",
+        element: <ConnectAstrologer />,
+      },
     ],
   },
 ]);
@@ -75,7 +80,7 @@ const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
 const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
-
+  console.log(client)
 createRoot(document.getElementById("root")).render(
   <AgoraRTCProvider client={client}>
     <Auth0Provider
